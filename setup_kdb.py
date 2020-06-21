@@ -106,8 +106,6 @@ def process_book_file(q, zipped_book_filename, kdb_dir=BOOKS_DIR, parent_dir=Non
     q(f'books:`sym`time xcols books;')
     q(f'.Q.dpft[`:{kdb_dir};{date_string};`sym;`books];')
     q(f'delete books from `.;')  # should be OK because of single threaded execution ??? check
-    q(f'.Q.dpft[`:{kdb_dir};{date_string};`sym;`books];')
-    q(f'delete books from `.;')  # should be OK because of single threaded execution ??? check
     
     clean_up_files(copied_original, extracted_file, full_output_filename)
 
