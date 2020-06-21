@@ -254,14 +254,14 @@ def main():
             # process_month_trades(month_pattern, data_path, logging, temp_dir="I:/testkdb/tempdir"):
             temp_dir = EXTRACT_DIR
             ps = [Process(target=process_month_trades, args=(logger, month_pattern, data_path, temp_dir))
-                  for month_pattern in starting_month_patterns[:3]]
+                  for month_pattern in starting_month_patterns]
             for p in ps:
                 p.start()
             for p in ps:
                 p.join()
             logging.info(f'Finished loading trades from {data_path}')
             ps = [Process(target=process_month_books, args=(logger, month_pattern, data_path, temp_dir))
-                  for month_pattern in starting_month_patterns[:3]]
+                  for month_pattern in starting_month_patterns]
             for p in ps:
                 p.start()
             for p in ps:
